@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ZeQuizz</string>
+    <string name="lib_online">Online</string>
+    <string name="lib_offline">Offline</string>
+    <string name="btnOffIA">1 vs AI</string>
+    <string name="btnOff1v1">1 vs 1</string>
+    <string name="btnOffTeam">Team A vs Team B</string>
+    <string name="btnOn1v1">1 vs 1 Online</string>
+    <string name="team">Team</string>
+    <string name="player">Player</string>
+    <string name="score">Score</string>
+    <string name="lives">Lifes</string>
+    <string name="DeQuelAnimalEstCeCri">Which animal made this sound?</string>
+    <string name="Dog">Dog</string>
+    <string name="Cat">Cat</string>
+    <string name="Horse">Horse</string>
+    <string name="Cow">Cow</string>
+</resources>
