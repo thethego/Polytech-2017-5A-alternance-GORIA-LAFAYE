@@ -6,4 +6,13 @@
     <string name="btnOff1v1">1 vs 1</string>
     <string name="btnOffTeam">Team A vs Team B</string>
     <string name="btnOn1v1">1 vs 1 Online</string>
+    <string name="team">Equipe</string>
+    <string name="player">Joueur</string>
+    <string name="score">Score</string>
+    <string name="lives">Vies</string>
+    <string name="DeQuelAnimalEstCeCri">De quel animal est ce cri</string>
+    <string name="Dog">Chien</string>
+    <string name="Cat">Chat</string>
+    <string name="Horse">Cheval</string>
+    <string name="Cow">Vache</string>
 </resources>
