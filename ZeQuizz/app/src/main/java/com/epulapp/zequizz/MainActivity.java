@@ -3,6 +3,8 @@ package com.epulapp.zequizz;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private final static String TAG = "TAG";
@@ -11,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button button = (Button) findViewById(R.id.btnOffTeam);
+        button.setOnClickListener(mBtnOffTeamListener);
     }
 
     @Override
@@ -48,4 +52,11 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
         Log.d(TAG, "onRestart");
     }
+
+    private View.OnClickListener mBtnOffTeamListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            setContentView(R.layout.activity_quizz);
+        }
+    };
 }
