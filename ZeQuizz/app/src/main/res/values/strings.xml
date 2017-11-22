@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ZeQuizz</string>
+    <string name="lib_online">Online</string>
+    <string name="lib_offline">Offline</string>
+    <string name="btnOffIA">1 vs IA</string>
+    <string name="btnOff1v1">1 vs 1</string>
+    <string name="btnOffTeam">Team A vs Team B</string>
+    <string name="btnOn1v1">1 vs 1 Online</string>
 </resources>
