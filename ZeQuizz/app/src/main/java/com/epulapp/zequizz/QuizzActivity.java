@@ -1,21 +1,22 @@
 package com.epulapp.zequizz;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-    private final static String TAG = "TAG";
+/**
+ * Created by Epulapp on 22/11/2017.
+ */
+
+public class QuizzActivity  extends AppCompatActivity {
+
+    private final static String TAG = "TAG-Quizz";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button button = (Button) findViewById(R.id.btnOffTeam);
-        button.setOnClickListener(mBtnOffTeamListener);
+        setContentView(R.layout.activity_quizz);
     }
 
     @Override
@@ -53,12 +54,4 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
         Log.d(TAG, "onRestart");
     }
-
-    private View.OnClickListener mBtnOffTeamListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(MainActivity.this, QuizzActivity.class);
-            startActivity(intent);
-        }
-    };
 }
