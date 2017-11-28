@@ -1,20 +1,27 @@
 package com.epulapp.zequizz;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private final static String TAG = "TAG";
+    private FragmentManager fragmentManager = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button button = (Button) findViewById(R.id.btnOffTeam);
+        Fragment newFragment = new MenuFragment();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.fragment_container, newFragment);
+        fragmentTransaction.commit();
+        Button button = findViewById(R.id.btnOffTeam);
         button.setOnClickListener(mBtnOffTeamListener);
     }
 
@@ -57,8 +64,12 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener mBtnOffTeamListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(MainActivity.this, QuizzActivity.class);
-            startActivity(intent);
+            // Create new fragment and transaction
+            Fragment newFragment = new QuizzFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, newFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         }
     };
 }
