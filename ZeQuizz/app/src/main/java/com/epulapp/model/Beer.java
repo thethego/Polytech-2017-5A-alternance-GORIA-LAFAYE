@@ -31,25 +31,25 @@ public class Beer {
     private Double abv;
     @SerializedName("ibu")
     @Expose
-    private Integer ibu;
+    private Double ibu;
     @SerializedName("target_fg")
     @Expose
     private Integer targetFg;
     @SerializedName("target_og")
     @Expose
-    private Integer targetOg;
+    private Double targetOg;
     @SerializedName("ebc")
     @Expose
-    private Integer ebc;
+    private Double ebc;
     @SerializedName("srm")
     @Expose
-    private Integer srm;
+    private Double srm;
     @SerializedName("ph")
     @Expose
     private Double ph;
     @SerializedName("attenuation_level")
     @Expose
-    private Integer attenuationLevel;
+    private Double attenuationLevel;
     @SerializedName("volume")
     @Expose
     private Volume volume;
@@ -103,7 +103,7 @@ public class Beer {
      * @param targetFg
      * @param tagline
      */
-    public Beer(Integer id, String name, String tagline, String firstBrewed, String description, String imageUrl, Double abv, Integer ibu, Integer targetFg, Integer targetOg, Integer ebc, Integer srm, Double ph, Integer attenuationLevel, Volume volume, BoilVolume boilVolume, Method method, Ingredients ingredients, List<String> foodPairing, String brewersTips, String contributedBy) {
+    public Beer(Integer id, String name, String tagline, String firstBrewed, String description, String imageUrl, Double abv, Double ibu, Integer targetFg, Double targetOg, Double ebc, Double srm, Double ph, Double attenuationLevel, Volume volume, BoilVolume boilVolume, Method method, Ingredients ingredients, List<String> foodPairing, String brewersTips, String contributedBy) {
         super();
         this.id = id;
         this.name = name;
@@ -219,15 +219,15 @@ public class Beer {
         return this;
     }
 
-    public Integer getIbu() {
+    public Double getIbu() {
         return ibu;
     }
 
-    public void setIbu(Integer ibu) {
+    public void setIbu(Double ibu) {
         this.ibu = ibu;
     }
 
-    public Beer withIbu(Integer ibu) {
+    public Beer withIbu(Double ibu) {
         this.ibu = ibu;
         return this;
     }
@@ -245,41 +245,41 @@ public class Beer {
         return this;
     }
 
-    public Integer getTargetOg() {
+    public Double getTargetOg() {
         return targetOg;
     }
 
-    public void setTargetOg(Integer targetOg) {
+    public void setTargetOg(Double targetOg) {
         this.targetOg = targetOg;
     }
 
-    public Beer withTargetOg(Integer targetOg) {
+    public Beer withTargetOg(Double targetOg) {
         this.targetOg = targetOg;
         return this;
     }
 
-    public Integer getEbc() {
+    public Double getEbc() {
         return ebc;
     }
 
-    public void setEbc(Integer ebc) {
+    public void setEbc(Double ebc) {
         this.ebc = ebc;
     }
 
-    public Beer withEbc(Integer ebc) {
+    public Beer withEbc(Double ebc) {
         this.ebc = ebc;
         return this;
     }
 
-    public Integer getSrm() {
+    public Double getSrm() {
         return srm;
     }
 
-    public void setSrm(Integer srm) {
+    public void setSrm(Double srm) {
         this.srm = srm;
     }
 
-    public Beer withSrm(Integer srm) {
+    public Beer withSrm(Double srm) {
         this.srm = srm;
         return this;
     }
@@ -297,15 +297,15 @@ public class Beer {
         return this;
     }
 
-    public Integer getAttenuationLevel() {
+    public Double getAttenuationLevel() {
         return attenuationLevel;
     }
 
-    public void setAttenuationLevel(Integer attenuationLevel) {
+    public void setAttenuationLevel(Double attenuationLevel) {
         this.attenuationLevel = attenuationLevel;
     }
 
-    public Beer withAttenuationLevel(Integer attenuationLevel) {
+    public Beer withAttenuationLevel(Double attenuationLevel) {
         this.attenuationLevel = attenuationLevel;
         return this;
     }
