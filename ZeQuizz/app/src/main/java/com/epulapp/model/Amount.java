@@ -1,14 +1,14 @@
 
-package com.epulapp;
+package com.epulapp.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BoilVolume {
+public class Amount {
 
     @SerializedName("value")
     @Expose
-    private Integer value;
+    private Double value;
     @SerializedName("unit")
     @Expose
     private String unit;
@@ -17,7 +17,7 @@ public class BoilVolume {
      * No args constructor for use in serialization
      * 
      */
-    public BoilVolume() {
+    public Amount() {
     }
 
     /**
@@ -25,21 +25,21 @@ public class BoilVolume {
      * @param unit
      * @param value
      */
-    public BoilVolume(Integer value, String unit) {
+    public Amount(Double value, String unit) {
         super();
         this.value = value;
         this.unit = unit;
     }
 
-    public Integer getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
-    public BoilVolume withValue(Integer value) {
+    public Amount withValue(Double value) {
         this.value = value;
         return this;
     }
@@ -52,7 +52,7 @@ public class BoilVolume {
         this.unit = unit;
     }
 
-    public BoilVolume withUnit(String unit) {
+    public Amount withUnit(String unit) {
         this.unit = unit;
         return this;
     }

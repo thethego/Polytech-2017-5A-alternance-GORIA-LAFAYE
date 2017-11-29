@@ -1,14 +1,14 @@
 
-package com.epulapp;
+package com.epulapp.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Amount {
+public class Temp {
 
     @SerializedName("value")
     @Expose
-    private Double value;
+    private Integer value;
     @SerializedName("unit")
     @Expose
     private String unit;
@@ -17,7 +17,7 @@ public class Amount {
      * No args constructor for use in serialization
      * 
      */
-    public Amount() {
+    public Temp() {
     }
 
     /**
@@ -25,21 +25,21 @@ public class Amount {
      * @param unit
      * @param value
      */
-    public Amount(Double value, String unit) {
+    public Temp(Integer value, String unit) {
         super();
         this.value = value;
         this.unit = unit;
     }
 
-    public Double getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(Double value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 
-    public Amount withValue(Double value) {
+    public Temp withValue(Integer value) {
         this.value = value;
         return this;
     }
@@ -52,7 +52,7 @@ public class Amount {
         this.unit = unit;
     }
 
-    public Amount withUnit(String unit) {
+    public Temp withUnit(String unit) {
         this.unit = unit;
         return this;
     }

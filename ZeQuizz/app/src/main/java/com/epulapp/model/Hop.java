@@ -1,5 +1,5 @@
 
-package com.epulapp;
+package com.epulapp.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -11,7 +11,7 @@ public class Hop {
     private String name;
     @SerializedName("amount")
     @Expose
-    private Amount_ amount;
+    private Amount amount;
     @SerializedName("add")
     @Expose
     private String add;
@@ -33,7 +33,7 @@ public class Hop {
      * @param attribute
      * @param add
      */
-    public Hop(String name, Amount_ amount, String add, String attribute) {
+    public Hop(String name, Amount amount, String add, String attribute) {
         super();
         this.name = name;
         this.amount = amount;
@@ -54,15 +54,15 @@ public class Hop {
         return this;
     }
 
-    public Amount_ getAmount() {
+    public Amount getAmount() {
         return amount;
     }
 
-    public void setAmount(Amount_ amount) {
+    public void setAmount(Amount amount) {
         this.amount = amount;
     }
 
-    public Hop withAmount(Amount_ amount) {
+    public Hop withAmount(Amount amount) {
         this.amount = amount;
         return this;
     }

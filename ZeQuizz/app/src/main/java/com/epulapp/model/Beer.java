@@ -1,5 +1,5 @@
 
-package com.epulapp;
+package com.epulapp.model;
 
 import java.util.ArrayList;
 import java.util.List;
