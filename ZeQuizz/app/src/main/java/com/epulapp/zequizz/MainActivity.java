@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(android.R.style.Theme_Material_NoActionBar);
         setContentView(R.layout.activity_main);
         Fragment newFragment = new MenuFragment();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

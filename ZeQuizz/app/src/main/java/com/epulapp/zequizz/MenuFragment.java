@@ -2,7 +2,6 @@ package com.epulapp.zequizz;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,7 @@ public class MenuFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_menu, container, false);
-        Button b = (Button) v.findViewById(R.id.btnOffTeam);
+        Button b = v.findViewById(R.id.btnOffTeam);
         b.setOnClickListener(mBtnOffTeamListener);
         return v;
     }
