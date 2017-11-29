@@ -2,20 +2,28 @@ package com.epulapp.zequizz;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-public class MenuFragment extends Fragment  implements View.OnClickListener{
+public class MenuFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_menu, container, false);
+        View v = inflater.inflate(R.layout.fragment_menu, container, false);
+        Button b = (Button) v.findViewById(R.id.btnOffTeam);
+        b.setOnClickListener(mBtnOffTeamListener);
+        return v;
     }
 
-    @Override
-    public void onClick(View view) {
+    private View.OnClickListener mBtnOffTeamListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            ((MainActivity)getActivity()).addQuizzFragment();
+        }
+    };
 
-    }
 }

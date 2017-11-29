@@ -6,8 +6,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private final static String TAG = "TAG";
@@ -21,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.fragment_container, newFragment);
         fragmentTransaction.commit();
-        Button button = findViewById(R.id.btnOffTeam);
-        button.setOnClickListener(mBtnOffTeamListener);
     }
 
     @Override
@@ -61,15 +57,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onRestart");
     }
 
-    private View.OnClickListener mBtnOffTeamListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            // Create new fragment and transaction
-            Fragment newFragment = new QuizzFragment();
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container, newFragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
-        }
-    };
+    public void addQuizzFragment() {
+        // Create new fragment and transaction
+        Fragment newFragment = new QuizzFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, newFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 }
