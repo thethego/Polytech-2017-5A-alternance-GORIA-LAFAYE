@@ -12,6 +12,6 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_hasValues() throws Exception {
-        assertEquals(new RequestPunkAPI().getBeers().size(), 25);
+        assertEquals(25, new RequestPunkAPI().getBeers().size());
     }
 }
