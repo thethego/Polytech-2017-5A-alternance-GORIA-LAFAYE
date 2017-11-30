@@ -1,6 +1,8 @@
 
 package com.epulapp.model;
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
@@ -71,6 +73,7 @@ public class Beer {
     @SerializedName("contributed_by")
     @Expose
     private String contributedBy;
+    public Bitmap beerImage;
 
     /**
      * No args constructor for use in serialization

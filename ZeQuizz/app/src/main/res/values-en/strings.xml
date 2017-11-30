@@ -15,4 +15,5 @@
     <string name="Cat">Cat</string>
     <string name="Horse">Horse</string>
     <string name="Cow">Cow</string>
+    <string name="imgBeerContent">beerPicture</string>
 </resources>

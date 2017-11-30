@@ -1,9 +1,12 @@
 package com.epulapp.zequizz;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.epulapp.model.Beer;
@@ -19,12 +22,14 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.MyViewHolder>{
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name, alc, year;
+        public ImageView beerImage;
 
         public MyViewHolder(View view) {
             super(view);
             name = (TextView) view.findViewById(R.id.name);
             alc = (TextView) view.findViewById(R.id.alc);
             year = (TextView) view.findViewById(R.id.year);
+            beerImage = (ImageView) view.findViewById(R.id.beerImage);
         }
     }
 
@@ -43,10 +48,20 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Beer beer = beersList.get(position);
+        final Beer beer = beersList.get(position);
         holder.name.setText(beer.getName());
         holder.alc.setText(beer.getAbv().toString());
         holder.year.setText(beer.getFirstBrewed());
+        holder.beerImage.setImageBitmap(beer.beerImage);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("VIEWLISTENER","OnClick");
+                Log.d("VIEWLISTENER",beer.getName());
+                ((ZebeersActivity)v.getContext()).showDetails(beer);
+
+            }
+        });
     }
 
     @Override

@@ -4,81 +4,63 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.epulapp.model.Beer;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ListBeerFragment.OnFragmentInteractionListener} interface
+ * {@link BeerDetailFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ListBeerFragment#newInstance} factory method to
+ * Use the {@link BeerDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListBeerFragment extends Fragment {
+public class BeerDetailFragment extends Fragment {
+
+    private Beer beer = new Beer();
 
     private OnFragmentInteractionListener mListener;
-    private RecyclerView recyclerView;
-    private BeerAdapter mAdapter;
-    private RequestPunkAPI requestPunkAPI;
 
-
-    public ListBeerFragment() {
+    public BeerDetailFragment() {
         // Required empty public constructor
-
     }
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
+
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ListBeerFragment.
+     * @param beer the beer shown.
+     * @return A new instance of fragment BeerDetailFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ListBeerFragment newInstance(String param1, String param2) {
-        ListBeerFragment fragment = new ListBeerFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
+    public static BeerDetailFragment newInstance(Beer beer) {
+        BeerDetailFragment fragment = new BeerDetailFragment();
+
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestPunkAPI = new RequestPunkAPI();
-        mAdapter = new BeerAdapter(requestPunkAPI.getBeers());
-        requestPunkAPI.setAdapter(mAdapter);
+
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_list_beer, container, false);
-        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerListBeer);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
-
         // Inflate the layout for this fragment
+        View v = inflater.inflate(R.layout.fragment_beer_detail, container, false);
+        ((TextView)v.findViewById(R.id.txtBeerName)).setText(beer.getName());
+        ((TextView)v.findViewById(R.id.txtDetail)).setText(beer.getDescription());
+        ((TextView)v.findViewById(R.id.txtAlc)).setText(beer.getAbv().toString());
+        ((TextView)v.findViewById(R.id.txtYear)).setText(beer.getFirstBrewed());
+        ((ImageView)v.findViewById(R.id.beerImageView)).setImageBitmap(beer.beerImage);
         return v;
     }
 
@@ -106,6 +88,9 @@ public class ListBeerFragment extends Fragment {
         mListener = null;
     }
 
+    public void setBeer(Beer beer){
+        this.beer = beer;
+    }
 
     /**
      * This interface must be implemented by activities that contain this
@@ -121,6 +106,4 @@ public class ListBeerFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
-
 }

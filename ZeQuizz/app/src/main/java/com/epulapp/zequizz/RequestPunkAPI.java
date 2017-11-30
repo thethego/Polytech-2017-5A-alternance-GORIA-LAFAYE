@@ -1,12 +1,17 @@
 package com.epulapp.zequizz;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ImageView;
 
 import com.epulapp.model.Beer;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -54,6 +59,12 @@ public class  RequestPunkAPI{
             public void onResponse(Call<List<Beer>> call, Response<List<Beer>> response) {
                 beers = response.body();
                 if(adapter!=null){
+
+                    for (Beer b: beers) {
+                        new DownloadImageTask(b.beerImage).execute(b.getImageUrl());
+
+                    }
+
                     adapter.swap(beers);
                     Log.d("Requester","notify");
                 }
@@ -71,5 +82,38 @@ public class  RequestPunkAPI{
         return this.beers;
     }
 
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        public Bitmap bmImage;
+        private String url;
+
+        public DownloadImageTask(Bitmap bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            url = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage=result;
+            Beer beer = null;
+            for(Beer b:beers){
+                if(b.getImageUrl() == url){
+                    b.beerImage = bmImage;
+                    adapter.swap(beers);
+                }
+            }
+        }
+    }
 
 }
