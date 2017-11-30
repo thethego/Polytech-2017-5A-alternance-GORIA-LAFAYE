@@ -53,4 +53,17 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.MyViewHolder>{
     public int getItemCount() {
         return beersList.size();
     }
+
+    public void swap(List<Beer> beers)
+    {
+        if(beers == null || beers.size()==0)
+            return;
+        if (beers != null && beers.size()>0)
+            beersList.clear();
+        beersList.addAll(beers);
+        notifyDataSetChanged();
+
+    }
+
+
 }

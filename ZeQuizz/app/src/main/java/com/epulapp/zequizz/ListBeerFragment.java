@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.epulapp.model.Beer;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -37,7 +38,7 @@ public class ListBeerFragment extends Fragment {
 
     public ListBeerFragment() {
         // Required empty public constructor
-        requestPunkAPI = new RequestPunkAPI();
+
     }
 
     /**
@@ -59,9 +60,10 @@ public class ListBeerFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestPunkAPI = new RequestPunkAPI();
+        mAdapter = new BeerAdapter(requestPunkAPI.getBeers());
+        requestPunkAPI.setAdapter(mAdapter);
 
-        List<Beer> myList = requestPunkAPI.getBeers();
-        mAdapter = new BeerAdapter(myList);
     }
 
     @Override

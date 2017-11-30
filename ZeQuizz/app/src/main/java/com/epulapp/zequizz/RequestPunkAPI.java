@@ -1,6 +1,7 @@
 package com.epulapp.zequizz;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.epulapp.model.Beer;
 import com.google.gson.Gson;
@@ -24,9 +25,10 @@ import retrofit2.http.GET;
  * Created by lafay on 29/11/2017.
  */
 
-public class RequestPunkAPI extends Observable{
+public class  RequestPunkAPI{
 
     private List<Beer> beers;
+    private BeerAdapter adapter;
 
     public RequestPunkAPI(){
         this.beers = new ArrayList();
@@ -36,6 +38,9 @@ public class RequestPunkAPI extends Observable{
     public interface PunkAPIService{
         @GET("beers")
         Call<List<Beer>> listBeers();
+    }
+    public void setAdapter(BeerAdapter adapter){
+        this.adapter = adapter;
     }
 
     public void updateList(){
@@ -48,7 +53,10 @@ public class RequestPunkAPI extends Observable{
             @Override
             public void onResponse(Call<List<Beer>> call, Response<List<Beer>> response) {
                 beers = response.body();
-                notifyObservers();
+                if(adapter!=null){
+                    adapter.swap(beers);
+                    Log.d("Requester","notify");
+                }
             }
 
             @Override
