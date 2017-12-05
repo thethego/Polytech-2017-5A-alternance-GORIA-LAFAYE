@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment newFragment = new MenuFragment();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.fragment_container, newFragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 

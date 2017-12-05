@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ZeQuizz</string>
+    <string name="app_name">ZeBeers</string>
     <string name="lib_online">Online</string>
     <string name="lib_offline">Offline</string>
     <string name="btnOffIA">1 vs AI</string>

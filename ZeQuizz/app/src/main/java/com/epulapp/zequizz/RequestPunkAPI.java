@@ -59,7 +59,6 @@ public class  RequestPunkAPI{
             public void onResponse(Call<List<Beer>> call, Response<List<Beer>> response) {
                 beers = response.body();
                 if(adapter!=null){
-
                     for (Beer b: beers) {
                         new DownloadImageTask(b.beerImage).execute(b.getImageUrl());
 
@@ -79,6 +78,7 @@ public class  RequestPunkAPI{
     }
 
     public List<Beer> getBeers(){
+
         return this.beers;
     }
 
@@ -111,6 +111,7 @@ public class  RequestPunkAPI{
                 if(b.getImageUrl() == url){
                     b.beerImage = bmImage;
                     adapter.swap(beers);
+                    return;
                 }
             }
         }

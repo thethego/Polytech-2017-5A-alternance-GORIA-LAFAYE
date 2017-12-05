@@ -13,6 +13,7 @@ import com.epulapp.model.Beer;
 public class ZebeersActivity extends AppCompatActivity implements ListBeerFragment.OnFragmentInteractionListener,BeerDetailFragment.OnFragmentInteractionListener {
 
     private FragmentManager fragmentManager = getSupportFragmentManager();
+    public static Beer detailBeer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class ZebeersActivity extends AppCompatActivity implements ListBeerFragme
         Fragment newFragment = new ListBeerFragment();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.beerListFragment_container, newFragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
@@ -35,11 +37,11 @@ public class ZebeersActivity extends AppCompatActivity implements ListBeerFragme
     }
 
     public void showDetails(Beer beer){
-        BeerDetailFragment newFragment = new BeerDetailFragment();
-        newFragment.setBeer(beer);
+        detailBeer = beer;
+        BeerDetailFragment newFragment = BeerDetailFragment.newInstance();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.beerListFragment_container, newFragment);
-        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.addToBackStack(ListBeerFragment.class.toString());
         fragmentTransaction.commit();
     }
 }

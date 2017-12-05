@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,7 @@ import com.epulapp.model.Beer;
  */
 public class BeerDetailFragment extends Fragment {
 
-    private Beer beer = new Beer();
+    private Beer beer;
 
     private OnFragmentInteractionListener mListener;
 
@@ -38,7 +39,7 @@ public class BeerDetailFragment extends Fragment {
      * @return A new instance of fragment BeerDetailFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static BeerDetailFragment newInstance(Beer beer) {
+    public static BeerDetailFragment newInstance() {
         BeerDetailFragment fragment = new BeerDetailFragment();
 
         return fragment;
@@ -48,7 +49,7 @@ public class BeerDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        beer = ZebeersActivity.detailBeer;
     }
 
     @Override
